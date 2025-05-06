@@ -7,8 +7,8 @@ pipeline:
   properties:
     ci:
       codebase:
-        connectorRef: Mission_14_Bandit_Connector
-        repoName: https://github.com/QA-Instructor/damn_vulnerable_python_web_app.git
+        connectorRef: Python_App_Connector
+        repoName: <+input>
         build: <+input>
         sparseCheckout: []
   stages:
