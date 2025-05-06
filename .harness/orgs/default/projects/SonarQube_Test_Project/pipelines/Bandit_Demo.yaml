@@ -44,3 +44,11 @@ pipeline:
                       log:
                         level: info
                       fail_on_severity: medium
+              - step:
+                  type: Run
+                  name: post scan step
+                  identifier: post_scan_step
+                  spec:
+                    shell: Sh
+                    command: echo 'Pipeline continues'
+                  description: Step to demo the failing scan
