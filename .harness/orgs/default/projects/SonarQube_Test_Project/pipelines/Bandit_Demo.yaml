@@ -1,0 +1,43 @@
+pipeline:
+  name: Bandit Demo
+  identifier: Bandit_Demo
+  projectIdentifier: SonarQube_Test_Project
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: Mission_14_Bandit_Connector
+        build: <+input>
+  stages:
+    - stage:
+        name: Build and Security Stage
+        identifier: Build_and_Security_Stage
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Bandit
+                  name: Bandit_scan_step
+                  identifier: Bandit_scan_step
+                  spec:
+                    mode: orchestration
+                    config: default
+                    target:
+                      type: repository
+                      detection: auto
+                    advanced:
+                      log:
+                        level: info
