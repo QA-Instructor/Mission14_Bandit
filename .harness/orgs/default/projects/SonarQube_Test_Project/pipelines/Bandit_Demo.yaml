@@ -43,7 +43,7 @@ pipeline:
                     advanced:
                       log:
                         level: info
-                      fail_on_severity: none
+                      fail_on_severity: medium
               - step:
                   type: Run
                   name: post scan step
